@@ -8,11 +8,11 @@ As it is a web page, it will not be necessary to compile the program: simply,  y
 
 The application runs on Windows, Linux and MacOS.
 
-If you are using GitHub, in order to use it, just prepend this fragment to the URL of any HTML file: https://htmlpreview.github.io/? e.g.:\
+If you are using GitHub, in order to use it, access this link:
 
-https://htmlpreview.github.io/?https://github.com/wfcancan/co2_calculator/blob/master/co2_emission_calculator.html
+https://rawcdn.githack.com/wfcancian/co2_calculator/c4c16b3ef6a29438aecc8d8d91465b497abf47a0/index.html
 
-*GitHub & BitBucket HTML Preview* was tested under the latest Google Chrome and Mozilla Firefox.
+***GitHub & BitBucket HTML Preview*** was tested under the latest Google Chrome and Mozilla Firefox.
 
 ## Running the tests
 
