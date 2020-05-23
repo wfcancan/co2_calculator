@@ -57,12 +57,7 @@
         var co_amount = 0;
         var zoom = 10;
 
-        const app = document.getElementById('floating-panel');
-       
-        console.log(map.getZoom());
-
-        if (line_old!=null)
-                vector.removeFeatures([line_old]);   
+        const app = document.getElementById('floating-panel'); 
 
         ORS_TOKEN = document.getElementById("ORS_TOKEN").value;
         points[0] = document.getElementById("start_city").value;
@@ -84,18 +79,7 @@
             end_point = coord[1].split(",");
             mid_point[0] = (parseFloat(str_point[0])+parseFloat(end_point[0]))/2;
             mid_point[1] = (parseFloat(str_point[1])+parseFloat(end_point[1]))/2;
-          
-
-            var style = {
-                strokeColor: "#0000FF",
-                strokeWidth: 5,
-                strokeDashstyle: "solid",
-            };
-             
-            var start_point = new OpenLayers.Geometry.Point(str_point[0],str_point[1]).transform(proj, proj9);
-            var end_point = new OpenLayers.Geometry.Point(end_point[0],end_point[1]).transform(proj,proj9);
-            var line = new OpenLayers.Feature.Vector(new OpenLayers.Geometry.LineString([start_point, end_point]),null,style);
-
+                       
 
             var h1 = document.getElementById('result');
             if (h1 == null) {    
