@@ -15,6 +15,10 @@ The application runs on Windows, Linux and MacOS.
 3. Select the transportation-method, using options avaliable;
 4. Click on the "Calculate CO2 Equivalent"
 
+```
+Try calling the program with incorrect information or with cities where it is not possible to travel using motor vehicles only.
+```
+
 ## Executing - How to Execute
 
 1. Set-up value of the token on field called ORS_TOKEN;
