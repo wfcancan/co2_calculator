@@ -22,11 +22,7 @@ The application runs on Windows, Linux and MacOS.
 3. Select the transportation-method, using options avaliable;
 4. Click on the "Calculate CO2 Equivalent"
 
-```
-![solarized selective contrast](https://github.com/altercation/solarized/raw/master/img/solarized-selcon.png)
-```
-![solarized selective contrast](https://github.com/altercation/solarized/raw/master/img/solarized-selcon.png)
-[![php dark](https://github.com/altercation/solarized/raw/master/img/screen-php-dark-th.png)](https://github.com/altercation/solarized/raw/master/img/screen-php-dark.png)
+![Example: how to Execute](https://github.com/wfcancan/co2_calculator/blob/master/example_co2.png)
 
 ## Built With
 * [OpenRouteService](https://openrouteservice.org/) - APIs to get coordinates and calculate distance between two points
