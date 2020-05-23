@@ -36,7 +36,7 @@ Transportation Method= Eletric Car (Small)
 **Response:**\
 Trip will depend on other transport ways. 
 
-### Third unit test - City information do not math
+### Third unit test - City information do not match
 **Parameters:**\
 Star City= Munchen\
 End City= TokyoWart\
