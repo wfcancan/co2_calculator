@@ -18,22 +18,32 @@ The application runs on Windows, Linux and MacOS.
 Try to call the program with incorrect information or with cities where it is not possible to travel using motor vehicles only.
 
 ### First unit test - Success Case
-**Parameters:**  
+**Parameters:**\
 Star City= Munchen\
 End City= Rome\
-Transportation Method= Petrol Car (Large)\
-**Response:** 
-    Distance: 933.97 km 
-    Your trip caused 263.38kg of CO2-equivalent. 
+Transportation Method= Petrol Car (Large)
+
+**Response:**\
+Distance: 933.97 km 
+Your trip caused 263.38kg of CO2-equivalent. 
 
 ### Second unit test - Cities where it is not possible to travel using motor vehicles only
-**Parameters:** 
-    -Star City= Munchen 
-    -End City= Tokyo 
-    -Transportation Method= Eletric Car (Small) 
-**Response:** 
-    Trip will depend on other transport ways. 
+**Parameters:**\
+Star City= Munchen\
+End City= Tokyo\
+Transportation Method= Eletric Car (Small)
 
+**Response:**\
+Trip will depend on other transport ways. 
+
+### Third unit test - City information do not math
+**Parameters:**\
+Star City= Munchen\
+End City= TokyoWart\
+Transportation Method= Bus
+
+**Response:**\
+Error. No address could be found. 
 
 ## Executing - How to Execute
 
