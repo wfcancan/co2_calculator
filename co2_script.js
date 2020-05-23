@@ -1,28 +1,3 @@
-    var map = new OpenLayers.Map("map");
-    map.addLayer(new OpenLayers.Layer.OSM());
-
-    alert('teste');
-
-    var zoom=5;
-    var size = new OpenLayers.Size(21,25);
-    var offset = new OpenLayers.Pixel(-(size.w/2), -size.h);
-    var icon_rel = new OpenLayers.Icon('marker.png', size, offset);
-
-    var proj = new OpenLayers.Projection("EPSG:4326");
-    var proj9 = new OpenLayers.Projection("EPSG:900913");
-    var sphe = map.getProjectionObject();
-    var style = {strokeWidth: 2,strokeColor: 'blue',labelAlign: "cm"};
-    var line_old;
-    var vector = new OpenLayers.Layer.Vector();
-
-    var markers = new OpenLayers.Layer.Markers( "Markers" );
-    map.addLayer(markers);
-
-    var center = new OpenLayers.LonLat(11.4218687,48.2339131).transform(proj,sphe);
-    map.setCenter (center, zoom);
-
-    map.addLayers([vector]);
-
     async function apiGeo(locate,ORS_TOKEN) {
     return new Promise(function (resolve, reject) {
         var request = new XMLHttpRequest();
@@ -83,8 +58,7 @@
         var zoom = 10;
 
         const app = document.getElementById('floating-panel');
-        markers.clearMarkers();
-
+       
         console.log(map.getZoom());
 
         if (line_old!=null)
@@ -110,9 +84,7 @@
             end_point = coord[1].split(",");
             mid_point[0] = (parseFloat(str_point[0])+parseFloat(end_point[0]))/2;
             mid_point[1] = (parseFloat(str_point[1])+parseFloat(end_point[1]))/2;
-           
-            markers.addMarker(new OpenLayers.Marker(new OpenLayers.LonLat(str_point[0],str_point[1]).transform(proj,sphe)));            
-            markers.addMarker(new OpenLayers.Marker(new OpenLayers.LonLat(end_point[0],end_point[1]).transform(proj,sphe)));
+          
 
             var style = {
                 strokeColor: "#0000FF",
@@ -123,9 +95,6 @@
             var start_point = new OpenLayers.Geometry.Point(str_point[0],str_point[1]).transform(proj, proj9);
             var end_point = new OpenLayers.Geometry.Point(end_point[0],end_point[1]).transform(proj,proj9);
             var line = new OpenLayers.Feature.Vector(new OpenLayers.Geometry.LineString([start_point, end_point]),null,style);
-
-            vector.addFeatures([line]);
-            line_old = line;
 
 
             var h1 = document.getElementById('result');
@@ -162,11 +131,7 @@
                     h2.textContent = 'Your trip caused ' + formatNumber(parseFloat(co_amount/1000).toFixed(2)) + 'kg of CO2-equivalent.';
             }
 
-            center = new OpenLayers.LonLat(mid_point[0],mid_point[1]).transform(proj,sphe);
-            map.setCenter (center,5);
-
-            var bounds = new OpenLayers.Bounds(str_point[1],end_point[1],str_point[0],end_point[0]);
-            map.zoomToExtent(vector.getExtent(),1);
+            
 
         } else{
 
