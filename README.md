@@ -8,6 +8,9 @@ As it is a web page, it will not be necessary to compile the program: simply,  y
 
 The application runs on Windows, Linux and MacOS.
 
+If you are using GitHub, in order to use it, just prepend this fragment to the URL of any HTML file: https://htmlpreview.github.io/? e.g.:
+https://htmlpreview.github.io/?https://github.com/wfcancan/co2_calculator/blob/master/co2_emission_calculator.html
+
 ## Running the tests
 
 1. Set-up value of the token on field called ORS_TOKEN;
