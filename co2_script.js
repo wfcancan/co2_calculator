@@ -1,3 +1,54 @@
+
+   var view = new ol.View({
+        center: ol.proj.fromLonLat([11.4218687,48.233913]),
+        zoom: 5
+    }); 
+
+
+   var map = new ol.Map({
+      target: 'map',
+      view: view,
+      layers: [ new ol.layer.Tile({source: new ol.source.OSM()})]
+      });
+
+   var marker = new ol.layer.Vector({
+    source: new ol.source.Vector({
+        features: [new ol.Feature({geometry: new ol.geom.Point(ol.proj.fromLonLat([11.4218687,48.2339131]))})]
+    })
+   });
+
+   map.addLayer(marker);
+   view.centerOn([11.4218687,48.2339131],map.getSize());
+
+    /*
+    //map = new ol.Map("map");
+
+    //map.addLayer(new ol.source.OSM());
+    var zoom=5;
+    
+    /*
+    var size = new ol.Size(21,25);
+    var offset = new ol.Pixel(-(size.w/2), -size.h);
+    
+
+
+    var proj = new ol.Proj.Projection("EPSG:4326");
+    var proj9 = new OpenLayers.Projection("EPSG:900913");
+    var sphe = map.getProjectionObject();
+    var style = {strokeWidth: 2,strokeColor: 'blue',labelAlign: "cm"};
+    var line_old;
+    var vector = new OpenLayers.Layer.Vector();
+
+    var markers = new OpenLayers.Layer.Markers( "Markers" );
+    map.addLayer(markers);
+    
+    var center = new ol.coordinate([11.4218687,48.2339131]); //.transform(proj,sphe);
+    map.setCenter (center, zoom);
+    /*
+    map.addLayers([vector]);
+    */
+
+
     async function apiGeo(locate,ORS_TOKEN) {
     return new Promise(function (resolve, reject) {
         var request = new XMLHttpRequest();
@@ -57,7 +108,13 @@
         var co_amount = 0;
         var zoom = 10;
 
-        const app = document.getElementById('floating-panel'); 
+        const app = document.getElementById('floating-panel');
+        /*
+        markers.clearMarkers();
+
+        if (line_old!=null)
+                vector.removeFeatures([line_old]);   
+        */
 
         ORS_TOKEN = document.getElementById("ORS_TOKEN").value;
         points[0] = document.getElementById("start_city").value;
@@ -79,7 +136,25 @@
             end_point = coord[1].split(",");
             mid_point[0] = (parseFloat(str_point[0])+parseFloat(end_point[0]))/2;
             mid_point[1] = (parseFloat(str_point[1])+parseFloat(end_point[1]))/2;
-                       
+           
+            /*
+            markers.addMarker(new OpenLayers.Marker(new OpenLayers.LonLat(str_point[0],str_point[1]).transform(proj,sphe)));            
+            markers.addMarker(new OpenLayers.Marker(new OpenLayers.LonLat(end_point[0],end_point[1]).transform(proj,sphe)));
+            
+
+            var style = {
+                strokeColor: "#0000FF",
+                strokeWidth: 5,
+                strokeDashstyle: "solid",
+            };
+             
+            var start_point = new OpenLayers.Geometry.Point(str_point[0],str_point[1]).transform(proj, proj9);
+            var end_point = new OpenLayers.Geometry.Point(end_point[0],end_point[1]).transform(proj,proj9);
+            var line = new OpenLayers.Feature.Vector(new OpenLayers.Geometry.LineString([start_point, end_point]),null,style);
+
+            vector.addFeatures([line]);
+            line_old = line;
+            */
 
             var h1 = document.getElementById('result');
             if (h1 == null) {    
@@ -115,7 +190,13 @@
                     h2.textContent = 'Your trip caused ' + formatNumber(parseFloat(co_amount/1000).toFixed(2)) + 'kg of CO2-equivalent.';
             }
 
-            
+            /*
+            center = new OpenLayers.LonLat(mid_point[0],mid_point[1]).transform(proj,sphe);
+            map.setCenter (center,5);
+
+            var bounds = new OpenLayers.Bounds(str_point[1],end_point[1],str_point[0],end_point[0]);
+            map.zoomToExtent(vector.getExtent(),1);
+            */
 
         } else{
 
